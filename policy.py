@@ -76,7 +76,7 @@ class GreedyPolicy(Policy):
 
     def get_action(self, observation, info):
         list_prods = observation["products"]
-        
+
         prod_size = [0, 0]
         stock_idx = -1
         pos_x, pos_y = 0, 0
@@ -85,6 +85,7 @@ class GreedyPolicy(Policy):
         for prod in list_prods:
             if prod["quantity"] > 0:
                 prod_size = prod["size"]
+
                 # Loop through all stocks
                 for i, stock in enumerate(observation["stocks"]):
                     stock_w, stock_h = self._get_stock_size_(stock)
