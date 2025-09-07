@@ -1,46 +1,55 @@
-# Mathematical Modelling - Fall 2024
+# Cutting Stock Problem Solver
 
-## Assignment: Cutting Stock Problem
-<!-- Describe cutting stock problem -->
-Cuttin Stock Problem is a combinatorial optimization problem that arises in many industrial applications. The problem consists of cutting stocks of material into smaller pieces in order to meet the demand for smaller pieces. The objective is to minimize the number of stocks used to meet the demand for smaller pieces. The problem is NP-hard and can be solved using integer programming techniques.
+![Python](https://img.shields.io/badge/language-Python-blue.svg)
+![Algorithm](https://img.shields.io/badge/algorithm-FirstFit%20%7C%20Greedy%20%7C%20Reinforcement-green.svg)
+![Status](https://img.shields.io/badge/status-academic--project-success.svg)
 
-Below is a demonstration of greedy algorithm for cutting stock problem.
-<!-- Show gif file named demo/greedy.gif -->
-![Greedy Algorithm](demo/greedy.gif)
+## 📌 Introduction
+This repository provides an implementation of the **Cutting Stock Problem (CSP)** using three different solution approaches:
 
-## Installation
-<!-- Describe how to install the project -->
-To install the project, you need to have Python installed on your machine. You can install Python from the official website. Once you have Python installed, you can clone the repository and run the following command to install the required packages:
-```bash
-pip install -r requirements.txt
-```
+1. **First-Fit Algorithm**  
+2. **Greedy Algorithm**  
+3. **Reinforcement Learning (RL)**  
 
-## Usage
-<!-- Describe how to use the project -->
-To use the project, you need to run the following command:
-```bash
-python main.py
-```
+The cutting stock problem is a classic optimization problem in operations research, where the objective is to minimize waste when cutting raw materials (e.g., metal bars, paper rolls, wood planks) into smaller pieces required for demand.
 
-## How to implement your own policy
-<!-- Describe how to implement your own policy -->
-To implement your own policy, you need to create a new class that inherits from the `Policy` class and implement the `get_action` method. The `get_action` method should take a list of demands and a list of stock as input and return a dictionary that contains action information. The action information should include the size of demand, stock index, and position to cut the stock. You should also implement the `__init__` method to initialize the policy with any required parameters. Please refer to the `RandomPolicy` class in the `policy.py` file for an example implementation.
+---
 
-You can start by creating a new file in the `student_submissions` directory and implementing your policy in `s22110xxx` folder. Your code should be named `policy2210xxx.py` where `2210xxx` is your student ID. The policy class should be named `Policy2210xxx` where `2210xxx` is your student ID and inherit from the `Policy` class. You can have some support files in `s22110xxx` folder. If you are in honor class, you must implement reinforcement learning policy. Once you have implemented your policy, you can run uncomment the line in the `main.py` file that imports your policy and run the project to test your policy. You can only use basic python libraries such as numpy, pandas, torch, tensorflow, scikit-learn and scipy to implement your policy. Please put the new library in the `requirements.txt` file.  
+## 🎯 Objectives
+- Model the cutting stock problem in Python.  
+- Implement and compare different solution strategies:
+  - **First-Fit**: place each item in the first available stock roll where it fits.  
+  - **Greedy**: prioritize placing larger items first to minimize waste.  
+  - **Reinforcement Learning**: train an agent to learn cutting policies that reduce waste over time.  
+- Provide performance benchmarks and visualize results.  
 
-After you complete your policy, you need to submit your code as a pull request to the main repository. The pull request should include the following information:
-- Title: Your student ID
-- A brief description of your policy
-- The implementation of your policy
-- The results of your policy on the test data
-- Any additional information you would like to include
+---
 
-Any solutions that are not submitted as a pull request or do not follow the above guidelines will not be accepted. If you have any questions or need help implementing your policy, please post a message in the discussion forum.
+## 🚀 How to Run
+1. Compile:
+   ```bash
+   pip install -r requirements.txt
+2. Run:
+   ```bash
+   python main.py
 
-## Contributing
-<!-- Describe how to contribute to the project -->
-To contribute to the project, you need to fork the repository and create a new branch. Once you have made your changes, you can create a pull request to merge your changes into the main branch.
+## 🧩 Implemented Approaches
+1. First-Fit
+- Simple heuristic.
+- Place each item into the first roll that has enough remaining length.
+- Fast but not always optimal.
 
-## License
-<!-- Describe the license under which the project is distributed -->
-This project is distributed under the MIT License. See `LICENSE` for more information.
+2. Greedy
+- Sort items by size (descending).
+- Place the largest items first to reduce waste.
+- Often produces better results than First-Fit.
+
+3. Reinforcement Learning
+- Formulated as a sequential decision-making problem.
+- The agent learns a cutting policy via trial-and-error.
+- Can achieve near-optimal solutions after sufficient training.
+
+##⚡ Future Work
+- Implement Column Generation (linear programming approach).
+- Add visualization (bar charts showing waste per roll).
+- Explore Deep Reinforcement Learning with policy gradient methods.
